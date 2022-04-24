@@ -53,13 +53,11 @@ try
                 if (!File.Exists(createPath + "Students\\" + studentGroup.GroupName + ".txt"))
                     using (FileStream fsStudentGroup = File.Create(createPath + "Students\\" + studentGroup.GroupName + ".txt"))
                     {
-                        //you can use the filstream here to put stuff in the file if you want to
                     }
-                //File.Create(createPath + "Students\\" + studentGroup.GroupName + ".txt");
 
                 foreach (var student in studentGroup.Groups)
                     File.AppendAllText(createPath + "Students\\" + studentGroup.GroupName + ".txt",
-                        $"{student.Name}, {student.DateOfBirth:dd.MM.yyyy}");
+                        $"{student.Name}, {student.DateOfBirth:dd.MM.yyyy}{Environment.NewLine}");
             }
         }
     }
